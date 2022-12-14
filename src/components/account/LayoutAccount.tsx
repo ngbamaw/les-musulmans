@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { Icon } from "@iconify/react";
 
 import { useUser } from "@components/account/UserProvider";
-import { routes } from "@pages/account";
+import { routes } from "@components/router";
 
 interface Props {
     open: boolean;
