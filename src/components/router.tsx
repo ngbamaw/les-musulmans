@@ -85,7 +85,7 @@ const Router = () => {
     );
   }, []);
   
-  return <RouterProvider router={router} />;
+  return router && <RouterProvider router={router} />;
 };
 
 export default Router;
