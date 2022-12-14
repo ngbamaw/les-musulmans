@@ -15,6 +15,7 @@ import LayoutAccount from "@components/account/LayoutAccount";
 import Profile from "@components/account/Profile";
 import SingletonUserService from "@services/UserService/SingletonUserService";
 import Donations from "@components/account/Donations";
+import ClientSide from "@components/ClientSide";
 
 const queryClient = new QueryClient();
 
@@ -85,13 +86,17 @@ const router = createBrowserRouter(
   )
 );
 
+const isClient = typeof window !== "undefined";
+
 const Account = () => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <UserProvider>
-        <RouterProvider router={router} />
-      </UserProvider>
-    </QueryClientProvider>
+    <ClientSide>
+      <QueryClientProvider client={queryClient}>
+        <UserProvider>
+          <RouterProvider router={router} />
+        </UserProvider>
+      </QueryClientProvider>
+    </ClientSide>
   );
 };
 
