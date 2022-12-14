@@ -6,7 +6,28 @@ import MoreStories from "../components/more-stories";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import { graphql } from "gatsby";
 
-export default function Index({ data: { allPosts, site, blog } }) {
+interface IndexProps {
+  data: {
+    allPosts: {
+      nodes: {
+        title: string;
+        coverImage: any;
+        date: string;
+        author: any;
+        slug: string;
+        excerpt: string;
+      }[];
+    };
+    site: {
+      favicon: any;
+    };
+    blog: {
+      seo: any;
+    };
+  };
+}
+
+const Index: React.FC<IndexProps> = ({ data: { allPosts, site, blog } }) => {
   const heroPost = allPosts.nodes[0];
   const morePosts = allPosts.nodes.slice(1);
 
@@ -28,6 +49,8 @@ export default function Index({ data: { allPosts, site, blog } }) {
     </Container>
   );
 }
+
+export default Index;
 
 export const query = graphql`
   {

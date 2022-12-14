@@ -3,7 +3,13 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import cn from "classnames";
 import { Link } from "gatsby";
 
-export default function CoverImage({ title, fluid, slug }) {
+interface CoverImageProps {
+  title: string;
+  fluid: any;
+  slug?: string;
+}
+
+const CoverImage: React.FC<CoverImageProps> = ({ title, fluid, slug }) => {
   const image = (
     <GatsbyImage
       image={fluid}
@@ -25,3 +31,5 @@ export default function CoverImage({ title, fluid, slug }) {
     </div>
   );
 }
+
+export default CoverImage;

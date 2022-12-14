@@ -1,6 +1,10 @@
-require("dotenv").config();
+import dotenv from "dotenv";
 
-module.exports = {
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+export default {
   siteMetadata: {
     title: "Gatsby Blog Demo",
   },

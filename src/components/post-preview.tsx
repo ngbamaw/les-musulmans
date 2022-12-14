@@ -1,17 +1,26 @@
 import React from "react";
-import Avatar from "../components/avatar";
-import Date from "../components/date";
-import CoverImage from "./cover-image";
+import Avatar from "@components/avatar";
+import Date from "@components/date";
+import CoverImage from "@components/cover-image";
 import { Link } from "gatsby";
 
-export default function PostPreview({
+interface PostPreviewProps {
+  title: string;
+  coverImage: any;
+  date: string;
+  excerpt: string;
+  author: any;
+  slug: string;
+}
+
+const PostPreview: React.FC<PostPreviewProps> = ({
   title,
   coverImage,
   date,
   excerpt,
   author,
   slug,
-}) {
+}) => {
   return (
     <div>
       <div className="mb-5">
@@ -30,3 +39,5 @@ export default function PostPreview({
     </div>
   );
 }
+
+export default PostPreview;
